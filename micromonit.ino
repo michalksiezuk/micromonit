@@ -30,7 +30,7 @@ long timeElapsed = 0;
 const byte numChars = 128;
 char receivedChars[numChars];
 char tempChars[numChars];
-boolean newData = false;
+bool newData = false;
 
 // CPU data
 char cpuName[numChars] = {0};
@@ -83,10 +83,10 @@ void loop() {
 
 
 void receiveData() {
-  static boolean receiveInProgress = false;
+  static bool receiveInProgress = false;
   static byte index = 0;
-  char startMarker = '<';
-  char endMarker = '>';
+  char startMarker = "<";
+  char endMarker = ">";
   char received;
 
   while (Serial.available() > 0 && newData == false) {
@@ -102,7 +102,7 @@ void receiveData() {
         }
       }
       else {
-        receivedChars[index] = '\0';
+        receivedChars[index] = "\0";
         receiveInProgress = false;
         newData = true;
         index = 0;
